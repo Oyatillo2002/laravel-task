@@ -19,11 +19,13 @@
                                             <div
                                                 class="h-8 w-8 rounded-full bg-slate-400 bg-[url('https://i.pravatar.cc/32')]">
                                             </div>
-                                            <div class="text-lg font-bold text-slate-700">{{$application->user->name}}</div>
+                                            <div class="text-lg font-bold text-slate-700">{{ $application->user->name }}
+                                            </div>
                                         </div>
                                         <div class="flex items-center space-x-8">
                                             <button
-                                                class="rounded-2xl border bg-neutral-100 px-3 py-1 text-xs text-neutral-500 font-semibold"># {{ $application->id }}</button>
+                                                class="rounded-2xl border bg-neutral-100 px-3 py-1 text-xs text-neutral-500 font-semibold">#
+                                                {{ $application->id }}</button>
                                             <div class="text-xs text-neutral-500">{{ $application->created_at }}</div>
                                         </div>
                                     </div>
@@ -44,8 +46,17 @@
                         @endforeach();
                         {{ $applications->links() }}
                 </div>
-            @else
+            @elseif(auth()->user()->role->name == 'client')
                 {{-- {{ __("Your client") }} --}}
+
+                @if (session()->has('error'))
+                    <div class='flex flex-row bg-gray-900 h-10 w-[1170px] rounded-[30px]'>
+                        <span
+                            class='flex flex-col justify-center text-white font-bold grow-[1] max-w-[90%] text-center'>{{ session()->get('error') }}</span>
+                        <div class='w-[10%] bg-yellow-400 rounded-r-2xl shadow-[0_0_20px_#ffbb3377]'></div>
+                    </div>
+                @endif
+
                 <div class='flex items-center  from-teal-100 via-teal-300 to-teal-500 bg-white-to-br'>
                     <div class='w-full max-w-lg px-10 py-8 mx-auto  rounded-lg shadow-xl'>
                         <div class='max-w-md mx-auto space-y-6'>
