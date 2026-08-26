@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreApplicationRequest;
 use App\Jobs\SendMailJob;
 use App\Mail\ApplicationCreated;
 use App\Models\Application;
@@ -32,7 +33,7 @@ class ApplicationController extends Controller
 
         return true; 
     }
-    public function store(Request $request)
+    public function store(StoreApplicationRequest $request)
     {
         if(!$this->checkDate()){
             return redirect()->back()->with('error', 'You can create only 1 application a day!');
@@ -41,12 +42,6 @@ class ApplicationController extends Controller
             $name = $request->file('file')->getClientOriginalName();
             $path = $request->file('file')->storeAs('files', $name, 'public');
         }
-
-        $request->validate([
-            'subject' => 'required|max:255',
-            'message' => 'required',
-            'file' => 'file|mimes:png,jpg,pdf',
-        ]);
 
         $applicaton = Application::create([
             'user_id' => auth()->user()->id,
