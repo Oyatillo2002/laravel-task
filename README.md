@@ -15,7 +15,7 @@ Menejer esa arizalarni o'qib ularga javob qaytaradi
  .env faylini sozlash
  php artisan key:generate
  php artisan migrate
-
+ php artisan queue:work
 ```
 ## Foydalanuvchi
 - User: manage@company.com
