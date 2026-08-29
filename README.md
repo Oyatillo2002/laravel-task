@@ -10,12 +10,18 @@ Menejer esa arizalarni o'qib ularga javob qaytaradi
 ## Loyihani ishga tushirish
 ```
  composer install
+ ```
+ - .env faylini sozlash
+   1. Databaseni sozlash
+   2. MAIL_MAILER=log 
+   
+ ```
  npm install
  npm run dev
- .env faylini sozlash
  php artisan key:generate
- php artisan migrate
+ php artisan migrate --seed
  php artisan queue:work
+ php artisan serve
 ```
 ## Foydalanuvchi
 - User: manage@company.com
