@@ -6,6 +6,23 @@
 Bu loyiha menejer va mijozlarni bog'laydi \
 Mijozlar o'z arizalarini qoldiradi \
 Menejer esa arizalarni o'qib ularga javob qaytaradi
+### Loyihada quyidagilar bilan ishlandi:
+- Answers
+- Applications
+- Migrations
+- Roles \
+Loyihada 2ta rol bor:
+  1. manager
+  2. client
+- Models
+- Mail \
+Ariza yaratilganda email yuboriladi va logga saqlanadi
+- Seeders \
+Loyihada quyidagi seederlar bor:
+  1. Answer
+  2. Application
+  3. Role
+  4. User
 
 ## Loyihani ishga tushirish
 ```
@@ -24,8 +41,13 @@ Menejer esa arizalarni o'qib ularga javob qaytaradi
  php artisan serve
 ```
 ## Foydalanuvchi
-- User: manage@company.com
-- Password: secret 
+1. Manager: \
+   User: manage@company.com \
+   Password: secret 
+2. Client: \
+   User: client@company.com \
+   Password: secret
+   
 
 ## Ma'lumotlar bazasi  Strukturasi
 ![Database](database.png "Database")
